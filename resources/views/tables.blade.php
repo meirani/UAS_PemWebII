@@ -7,7 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+                <p class="h3 text-center mt-3">Judul Table</p>
+
                 <div class="p-6 text-gray-900">
                     <!-- Button to add data -->
                     <div class="flex justify-center mb-4 ml-3">

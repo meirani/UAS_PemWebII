@@ -8,9 +8,10 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <p class="h3 text-center">Create Data Default</p>
-
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+                <p class="h3 text-center mt-3">Create Data Default</p>
+
                 <form action="" method="POST">
 
                     <div class="input-group mb-3 mt-3 justify-content-center">
