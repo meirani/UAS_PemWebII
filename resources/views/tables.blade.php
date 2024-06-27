@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Table') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900">
                     <!-- Button to add data -->
                     <div class="flex justify-center mb-4 ml-3">
                         <a href="/table/create">
@@ -19,20 +19,20 @@
                     </div>
 
                     <!-- Table -->
-                    <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
-                        <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+                    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                        <table class="w-full divide-y divide-gray-200">
                             <tr>
                                 <th
-                                    class="px-6 py-3 text-center text-s font-large text-gray-500 dark:text-gray-200 uppercase tracking-wider table-primary">
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     ID</th>
                                 <th
-                                    class="px-6 py-3 text-center text-s font-large text-gray-500 dark:text-gray-200 uppercase tracking-wider table-primary">
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Name</th>
                                 <th
-                                    class="px-6 py-3 text-center text-s font-large text-gray-500 dark:text-gray-200 uppercase tracking-wider table-primary">
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Email</th>
                                 <th
-                                    class="px-6 py-3 text-center text-s font-large text-gray-500 dark:text-gray-200 uppercase tracking-wider table-primary">
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Actions</th>
                             </tr>
                             {{-- @foreach ($items as $item) --}}
