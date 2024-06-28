@@ -12,58 +12,31 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <p class="h3 text-center mt-3">Judul Table</p>
+                <p class="h3 text-center mt-3">Daftar Tamu</p>
 
                 <div class="p-6 text-gray-900">
-                    <!-- Button to add data -->
-                    <div class="flex justify-center mb-4 ml-3">
-                        <a href="/table/create">
-                            <button class="btn btn-primary">
-                                Tambah Data
-                            </button>
-                        </a>
-                    </div>
-
                     <!-- Table -->
                     <div class="bg-white shadow-md rounded-lg overflow-hidden">
                         <table class="w-full divide-y divide-gray-200">
                             <tr>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    ID</th>
+                                    Hotel</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Name</th>
+                                    Tamu</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Email</th>
-                                <th
-                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Actions</th>
+                                    Tanggal</th>
                             </tr>
-                            {{-- @foreach ($items as $item) --}}
-                            <tr>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Halo</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Apa Kabar</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Kamu</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex space-x-2 justify-content-center">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-secondary btn-sm mr-2">
-                                                Edit
-                                            </button>
-                                        </a>
-                                        <form action="#" method="POST" onsubmit="return confirm('Are you sure?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-secondary btn-sm">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
+                            @foreach ($reservasis as $reservasi)
+                                <tr>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->hotel->nama }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->tamu }}</td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->tanggal }}</td>
+                                </tr>
+                            @endforeach
                         </table>
                     </div>
 

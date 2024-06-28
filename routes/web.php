@@ -5,9 +5,11 @@ use App\Models\Hotel;
 use App\Models\Kamar;
 use App\Models\Reservasi;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservasiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,6 +44,8 @@ Route::get('/reservasis', function () {
     return view('reservasis', ['reservasis' => $reservasi]);
 })->middleware(['auth', 'verified'])->name('reservasis');
 
+Route::resource('/reservasi', ReservasiController::class);
+
 Route::get('/tamus', function () {
     $reservasi = Reservasi::all();
     return view('tamus', ['reservasis' => $reservasi]);
@@ -51,5 +55,7 @@ Route::get('/users', function () {
     $user = User::all();
     return view('users', ['users' => $user]);
 })->middleware(['auth', 'verified'])->name('users');
+
+Route::resource('/user', UserController::class);
 
 require __DIR__ . '/auth.php';

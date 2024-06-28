@@ -45,7 +45,7 @@
                                 <tr>
                                     <td class="px-6 py-4 text-center whitespace-nowrap">
                                         <div class="flex space-x-2 justify-content-center">
-                                            <a href="#">
+                                            <a href="/reservasi/create">
                                                 <button type="button" class="btn btn-primary mr-2">
                                                     Book
                                                 </button>

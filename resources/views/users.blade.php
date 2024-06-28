@@ -12,12 +12,12 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <p class="h3 text-center mt-3">Judul Table</p>
+                <p class="h3 text-center mt-3">Daftar User</p>
 
                 <div class="p-6 text-gray-900">
                     <!-- Button to add data -->
                     <div class="flex justify-center mb-4 ml-3">
-                        <a href="/table/create">
+                        <a href="/user/create">
                             <button class="btn btn-primary">
                                 Tambah Data
                             </button>
@@ -33,7 +33,7 @@
                                     ID</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Name</th>
+                                    Nama</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Email</th>
@@ -41,29 +41,30 @@
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Actions</th>
                             </tr>
-                            {{-- @foreach ($items as $item) --}}
-                            <tr>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Halo</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Apa Kabar</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Kamu</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex space-x-2 justify-content-center">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-secondary btn-sm mr-2">
-                                                Edit
-                                            </button>
-                                        </a>
-                                        <form action="#" method="POST" onsubmit="return confirm('Are you sure?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-secondary btn-sm">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
+                            @foreach ($users as $user)
+                                <tr>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $user->id }}</td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $user->name }}</td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $user->email }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex space-x-2 justify-content-center">
+                                            <a href="/user/{{ $user->id }}/edit">
+                                                <button type="button" class="btn btn-secondary btn-sm mr-2">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                            <form action="/user/{{ $user->id }}" method="POST"
+                                                onsubmit="return confirm('Are you sure?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-secondary btn-sm">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </table>
                     </div>
 

@@ -12,14 +12,14 @@
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                <p class="h3 text-center mt-3">Judul Table</p>
+                <p class="h3 text-center mt-3">Reservasi</p>
 
                 <div class="p-6 text-gray-900">
                     <!-- Button to add data -->
                     <div class="flex justify-center mb-4 ml-3">
-                        <a href="/table/create">
+                        <a href="/reservasi/create">
                             <button class="btn btn-primary">
-                                Tambah Data
+                                Buat Reservasi
                             </button>
                         </a>
                     </div>
@@ -30,40 +30,53 @@
                             <tr>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    ID</th>
+                                    Nama Tamu</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Name</th>
+                                    Hotel</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
-                                    Email</th>
+                                    Kamar</th>
+                                <th
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
+                                    Tanggal</th>
+                                <th
+                                    class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
+                                    Email Pemesan</th>
                                 <th
                                     class="px-6 py-3 text-center text-s font-large text-gray-500 uppercase tracking-wider table-primary">
                                     Actions</th>
                             </tr>
-                            {{-- @foreach ($items as $item) --}}
-                            <tr>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Halo</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Apa Kabar</td>
-                                <td class="px-6 py-4 text-center whitespace-nowrap">Kamu</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex space-x-2 justify-content-center">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-secondary btn-sm mr-2">
-                                                Edit
-                                            </button>
-                                        </a>
-                                        <form action="#" method="POST" onsubmit="return confirm('Are you sure?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-secondary btn-sm">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
+                            @foreach ($reservasis as $reservasi)
+                                <tr>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->tamu }}</td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->hotel->nama }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->kamar->nomor }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->tanggal }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center whitespace-nowrap">{{ $reservasi->user->email }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="flex space-x-2 justify-content-center">
+                                            <a href="/reservasi/{{ $reservasi->id }}/edit">
+                                                <button type="button" class="btn btn-secondary btn-sm mr-2">
+                                                    Edit
+                                                </button>
+                                            </a>
+                                            <form action="/reservasi/{{ $reservasi->id }}" method="POST"
+                                                onsubmit="return confirm('Are you sure?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-secondary btn-sm">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </table>
                     </div>
 
