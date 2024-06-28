@@ -18,8 +18,32 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('tables')" :active="request()->routeIs('tables')">
-                        {{ __('Table') }}
+                    <x-nav-link :href="route('hotels')" :active="request()->routeIs('hotels')">
+                        {{ __('Hotel') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('kamars')" :active="request()->routeIs('kamars')">
+                        {{ __('Kamar') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('reservasis')" :active="request()->routeIs('reservasis')">
+                        {{ __('Reservasi') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('tamus')" :active="request()->routeIs('tamus')">
+                        {{ __('Tamu') }}
+                    </x-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{ __('User') }}
                     </x-nav-link>
                 </div>
             </div>

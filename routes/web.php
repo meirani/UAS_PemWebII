@@ -1,7 +1,12 @@
 <?php
 
+use App\Models\User;
+use App\Models\Hotel;
+use App\Models\Kamar;
+use App\Models\Reservasi;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TableController;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
@@ -18,10 +23,33 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/tables', function () {
-    return view('tables');
-})->middleware(['auth', 'verified'])->name('tables');
+Route::get('/hotels', function () {
+    $hotel = Hotel::all();
+    return view('hotels', ['hotels' => $hotel]);
+})->middleware(['auth', 'verified'])->name('hotels');
 
-Route::resource('/table', TableController::class)->middleware(['auth', 'verified']);
+Route::resource('/hotel', HotelController::class)->middleware(['auth', 'verified']);
+
+Route::get('/kamars', function () {
+    $kamar = Kamar::all();
+    return view('kamars', ['kamars' => $kamar]);
+})->middleware(['auth', 'verified'])->name('kamars');
+
+Route::resource('/kamar', KamarController::class)->middleware(['auth', 'verified']);
+
+Route::get('/reservasis', function () {
+    $reservasi = Reservasi::all();
+    return view('reservasis', ['reservasis' => $reservasi]);
+})->middleware(['auth', 'verified'])->name('reservasis');
+
+Route::get('/tamus', function () {
+    $reservasi = Reservasi::all();
+    return view('tamus', ['reservasis' => $reservasi]);
+})->middleware(['auth', 'verified'])->name('tamus');
+
+Route::get('/users', function () {
+    $user = User::all();
+    return view('users', ['users' => $user]);
+})->middleware(['auth', 'verified'])->name('users');
 
 require __DIR__ . '/auth.php';
